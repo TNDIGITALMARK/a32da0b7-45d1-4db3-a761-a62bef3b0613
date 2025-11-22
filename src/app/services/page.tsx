@@ -1,53 +1,122 @@
 import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-import { Check, Star, ArrowRight } from 'lucide-react'
+import { CheckCircle, ArrowRight, Sprout, Trees, Hammer, Fence, Droplets, Sun } from 'lucide-react'
 
-const packages = [
+const allServices = [
   {
-    name: 'Essential Package',
-    price: '$800',
-    description: 'Perfect for intimate gatherings and small events',
-    features: [
-      '2 hours of photography',
-      '100 professionally edited photos',
-      'Online gallery for 30 days',
-      'Personal use print rights',
-      'Same-week delivery',
-    ],
-    popular: false,
+    title: "Artificial Turf Installation",
+    icon: "🌿",
+    description: "Low-maintenance, year-round green lawns with premium synthetic grass that looks and feels natural.",
+    features: ["Premium materials", "Expert installation", "5-year warranty"]
   },
   {
-    name: 'Premium Package',
-    price: '$1,500',
-    description: 'Our most popular choice for weddings and special occasions',
-    features: [
-      '4 hours of photography',
-      '300 professionally edited photos',
-      'Online gallery for 90 days',
-      'Commercial use print rights',
-      'Engagement session included',
-      'Premium leather album (20 pages)',
-      '48-hour sneak peek delivery',
-    ],
-    popular: true,
+    title: "Concrete Masonry",
+    icon: "🏗️",
+    description: "Durable concrete work including driveways, walkways, patios, and decorative concrete surfaces.",
+    features: ["Quality concrete", "Custom finishes", "Long-lasting results"]
   },
   {
-    name: 'Luxury Package',
-    price: '$2,500',
-    description: 'Complete coverage for your most important moments',
-    features: [
-      '8 hours of photography',
-      '500+ professionally edited photos',
-      'Unlimited online gallery access',
-      'Full commercial use rights',
-      'Pre-event consultation',
-      'Engagement & rehearsal sessions',
-      'Premium leather album (40 pages)',
-      '24-hour sneak peek delivery',
-      'Second photographer included',
-    ],
-    popular: false,
+    title: "Custom Landscape Design",
+    icon: "🎨",
+    description: "Personalized landscape plans that blend aesthetics with functionality for your unique outdoor space.",
+    features: ["3D renderings", "Plant selection", "Complete planning"]
+  },
+  {
+    title: "Desert Landscaping",
+    icon: "🌵",
+    description: "Water-efficient xeriscaping with native plants perfect for Arizona's climate and environment.",
+    features: ["Drought-tolerant", "Native plants", "Low water usage"]
+  },
+  {
+    title: "Driveway Landscaping",
+    icon: "🚗",
+    description: "Enhance your property's curb appeal with beautiful driveway borders and surrounding landscapes.",
+    features: ["Border design", "Plant selection", "Hardscape integration"]
+  },
+  {
+    title: "Driveway or Path Paving",
+    icon: "🛤️",
+    description: "Professional paving services using pavers, stone, or concrete for durable and attractive pathways.",
+    features: ["Multiple materials", "Custom patterns", "Proper drainage"]
+  },
+  {
+    title: "Garden Decorating",
+    icon: "💐",
+    description: "Enhance your garden with decorative elements, lighting, water features, and artistic touches.",
+    features: ["Lighting design", "Water features", "Garden art"]
+  },
+  {
+    title: "Garden Design",
+    icon: "🌸",
+    description: "Complete garden planning from concept to reality, creating beautiful and functional outdoor spaces.",
+    features: ["Custom layouts", "Plant combinations", "Year-round interest"]
+  },
+  {
+    title: "Garden Designs",
+    icon: "🌻",
+    description: "Multiple design options for various garden styles including cottage, modern, and Mediterranean gardens.",
+    features: ["Style options", "Plant palettes", "Seasonal planning"]
+  },
+  {
+    title: "Garden Drainage",
+    icon: "💧",
+    description: "Proper drainage solutions to protect your landscape and prevent water damage to your property.",
+    features: ["French drains", "Grading work", "Problem solving"]
+  },
+  {
+    title: "Garden Landscaping",
+    icon: "🌺",
+    description: "Comprehensive garden installation and maintenance creating vibrant, healthy outdoor environments.",
+    features: ["Installation", "Soil preparation", "Plant care"]
+  },
+  {
+    title: "Landscape Design Construction",
+    icon: "🏘️",
+    description: "Full-service design and build services bringing your landscape vision from paper to reality.",
+    features: ["Design-build", "Project management", "Quality construction"]
+  },
+  {
+    title: "Landscape Installations",
+    icon: "🌳",
+    description: "Expert installation of plants, trees, shrubs, and complete landscape systems with proper techniques.",
+    features: ["Proper planting", "Irrigation setup", "Mulching"]
+  },
+  {
+    title: "Outdoor Step Construction",
+    icon: "🪜",
+    description: "Safe, attractive steps and stairs using stone, pavers, or timber for sloped properties.",
+    features: ["Safe design", "Quality materials", "Custom heights"]
+  },
+  {
+    title: "Outdoor Water Feature Design",
+    icon: "⛲",
+    description: "Custom fountains, ponds, waterfalls, and streams adding tranquility to your outdoor space.",
+    features: ["Custom design", "Pump systems", "Natural look"]
+  },
+  {
+    title: "Path Landscaping",
+    icon: "🚶",
+    description: "Beautiful garden paths and walkways that guide movement while enhancing your landscape design.",
+    features: ["Various materials", "Curved designs", "Border plants"]
+  },
+  {
+    title: "Patio Design",
+    icon: "🪑",
+    description: "Functional and beautiful patios perfect for entertaining, dining, and relaxing outdoors.",
+    features: ["Multiple layouts", "Material options", "Shade solutions"]
+  },
+  {
+    title: "Retaining Wall Design",
+    icon: "🧱",
+    description: "Structural and decorative retaining walls for erosion control and creating usable terraced spaces.",
+    features: ["Engineering", "Various materials", "Proper drainage"]
+  },
+  {
+    title: "Stonemasonry",
+    icon: "🪨",
+    description: "Expert stonework for walls, pathways, borders, and decorative features using natural and cut stone.",
+    features: ["Natural stone", "Expert craftsmanship", "Lasting beauty"]
   },
 ]
 
@@ -105,167 +174,88 @@ export default function ServicesPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-background via-muted/30 to-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-              Services & Pricing
+              Our Landscaping Services
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Transparent pricing for exceptional photography services. Each package is designed
-              to capture your story beautifully and professionally.
+              Comprehensive landscaping solutions for residential and commercial properties.
+              From design to installation, we handle every aspect with professional expertise.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Pricing Packages */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {packages.map((pkg) => (
+      {/* All Services Grid */}
+      <section className="py-20 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {allServices.map((service, index) => (
               <div
-                key={pkg.name}
-                className={`relative rounded-lg border-2 p-8 ${
-                  pkg.popular
-                    ? 'border-black bg-gray-50'
-                    : 'border-gray-200 bg-white'
-                }`}
+                key={index}
+                className="bg-background p-6 rounded-xl border-2 border-border hover:border-primary hover:shadow-xl transition-all duration-300 group"
               >
-                {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Most Popular
-                  </div>
-                )}
-
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-heading font-bold mb-2">
-                    {pkg.name}
-                  </h3>
-                  <p className="text-4xl font-heading font-bold mb-2">
-                    {pkg.price}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {pkg.description}
-                  </p>
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {service.icon}
                 </div>
-
-                <ul className="space-y-3 mb-8">
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <Check size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {service.description}
+                </p>
+                <div className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </div>
                   ))}
-                </ul>
-
-                <Link
-                  href="/booking"
-                  className={`block w-full py-3 text-center font-medium rounded transition-colors ${
-                    pkg.popular
-                      ? 'bg-black text-white hover:bg-gray-800'
-                      : 'border-2 border-black text-black hover:bg-gray-50'
-                  }`}
-                >
-                  Book This Package
-                </Link>
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground mb-4">
-              Need something custom? Let's discuss your specific needs.
-            </p>
-            <Link
-              href="/booking"
-              className="inline-flex items-center gap-2 text-lg font-medium hover:opacity-70 transition-opacity"
-            >
-              Contact for Custom Quote
-              <ArrowRight size={20} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Client Testimonials
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Hear from some of the amazing people I've had the privilege to work with
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.name}
-                className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow"
+          <div className="mt-16 text-center">
+            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 md:p-12">
+              <h3 className="text-3xl font-bold text-foreground mb-4">
+                Custom Solutions Available
+              </h3>
+              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Don't see exactly what you need? We offer custom landscaping solutions
+                tailored to your specific requirements and vision.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 hover:shadow-lg transition-all duration-300"
               >
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={18}
-                      className="fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <blockquote className="text-gray-700 mb-6 leading-relaxed">
-                  "{testimonial.quote}"
-                </blockquote>
-
-                {/* Client Info */}
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.role}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {testimonial.project}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+                Get Custom Quote
+                <ArrowRight size={20} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Book your session today and let's create beautiful memories together.
-              I can't wait to hear about your vision!
-            </p>
-            <Link
-              href="/booking"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium rounded hover:bg-gray-800 transition-colors text-lg"
-            >
-              Schedule Your Session
-              <ArrowRight size={20} />
-            </Link>
-          </div>
+      <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary-foreground">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+            Contact us today for a free consultation and quote. We'll discuss your vision
+            and create a custom plan for your outdoor space.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            Request Free Quote
+            <ArrowRight size={20} />
+          </Link>
         </div>
       </section>
 

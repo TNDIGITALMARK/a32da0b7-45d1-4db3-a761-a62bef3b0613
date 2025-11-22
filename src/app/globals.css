@@ -1,70 +1,80 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
-Photography Website Design System - Minimalistic & Professional
+Landscaping Services Website - Professional & Natural Design System
+Earthy tones with vibrant green accents to represent nature and growth
 */
 
 :root {
   /* Typography System */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 5%;
+  /* Natural earth tones with clean backgrounds */
+  --background: 40 20% 97%;
+  --foreground: 30 10% 15%;
 
-  /* Clean white cards with black text */
+  /* Card backgrounds with subtle warmth */
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 5%;
+  --card-foreground: 30 10% 15%;
 
-  /* Popovers with white background */
+  /* Popovers with clean white */
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 5%;
+  --popover-foreground: 30 10% 15%;
 
-  /* Primary: Elegant dark charcoal with white text */
-  --primary: 0 0% 10%;
+  /* Primary: Rich forest green representing growth and nature */
+  --primary: 145 50% 35%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Light gray background with dark text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 10%;
+  /* Secondary: Warm earth brown */
+  --secondary: 30 25% 50%;
+  --secondary-foreground: 0 0% 100%;
 
-  /* Muted: Subtle gray with medium text */
-  --muted: 0 0% 95%;
-  --muted-foreground: 0 0% 45%;
+  /* Muted: Soft sage green background */
+  --muted: 120 15% 92%;
+  --muted-foreground: 30 10% 40%;
 
-  /* Accent: Warm accent for CTAs */
-  --accent: 24 100% 50%;
+  /* Accent: Vibrant grass green for CTAs and highlights */
+  --accent: 120 60% 45%;
   --accent-foreground: 0 0% 100%;
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
+  /* Destructive: Natural red-brown */
+  --destructive: 0 65% 50%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 88%;
-  --input: 0 0% 88%;
-  --ring: 0 0% 10%;
+  /* Borders: Subtle earth tones */
+  --border: 40 15% 85%;
+  --input: 40 15% 85%;
+  --ring: 145 50% 35%;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.10);
+  /* Success state: Bright green for confirmations */
+  --success: 140 70% 45%;
+  --success-foreground: 0 0% 100%;
 
-  /* Minimal rounded corners */
-  --radius: 0.25rem;
+  /* Warning state: Golden yellow */
+  --warning: 45 90% 55%;
+  --warning-foreground: 30 10% 15%;
 
-  /* Sidebar: Clean white with black text */
+  /* Shadows with subtle warmth */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.10);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.12);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.15);
+
+  /* Rounded corners for natural, organic feel */
+  --radius: 0.5rem;
+
+  /* Sidebar: Clean with green accents */
   --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 10%;
-  --sidebar-primary: 0 0% 10%;
+  --sidebar-foreground: 30 10% 15%;
+  --sidebar-primary: 145 50% 35%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 95%;
-  --sidebar-accent-foreground: 0 0% 10%;
-  --sidebar-border: 0 0% 88%;
-  --sidebar-ring: 0 0% 10%;
+  --sidebar-accent: 120 15% 92%;
+  --sidebar-accent-foreground: 30 10% 15%;
+  --sidebar-border: 40 15% 85%;
+  --sidebar-ring: 145 50% 35%;
 }
 
 .dark {
@@ -195,44 +205,46 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Professional Typography Scale */
+/* Professional Typography Scale - Bold and Clear */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: hsl(var(--foreground));
   line-height: 1.2;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.75em;
+  margin-top: 0;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 600;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
   font-weight: 600;
 }
 
 h5 {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 600;
 }
 
@@ -254,14 +266,30 @@ a:hover {
 /* Clean button styles */
 button {
   font-family: var(--font-body);
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Form defaults */
 input, textarea, select {
   font-family: var(--font-body);
   font-size: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.1);
 }
 
 /* Lead text */

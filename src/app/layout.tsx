@@ -19,8 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "GreenScape Landscaping - Professional Landscaping Services in Arizona",
+  description: "Transform your outdoor space with GreenScape's expert landscaping services. From custom designs to artificial turf, concrete masonry, patios, and water features. Serving Phoenix, Arizona with 15+ years of experience.",
+  keywords: "landscaping, landscape design, artificial turf, concrete masonry, patio design, retaining walls, water features, garden design, desert landscaping, Phoenix Arizona landscaping",
 };
 
 export default function RootLayout({
