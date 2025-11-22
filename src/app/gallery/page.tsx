@@ -1,7 +1,58 @@
+'use client'
+
 import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
+import { GalleryGrid } from '@/components/gallery-grid'
 import { ArrowRight } from 'lucide-react'
+
+const projectImages = [
+  {
+    src: '/generated/desert-residential-landscape.jpg',
+    alt: 'Desert residential front yard with native Arizona plants and artificial turf',
+    category: 'Desert Landscaping'
+  },
+  {
+    src: '/generated/luxury-patio-landscape.jpg',
+    alt: 'Luxury backyard patio with pergola and fire pit',
+    category: 'Patio & Outdoor Living'
+  },
+  {
+    src: '/generated/artificial-turf-backyard.jpg',
+    alt: 'Professional artificial turf installation in modern backyard',
+    category: 'Artificial Turf'
+  },
+  {
+    src: '/generated/water-feature-fountain.jpg',
+    alt: 'Custom water feature with fountain and koi pond',
+    category: 'Water Features'
+  },
+  {
+    src: '/generated/concrete-hardscaping-driveway.jpg',
+    alt: 'Decorative stamped concrete driveway and walkway',
+    category: 'Concrete Masonry'
+  },
+  {
+    src: '/generated/custom-garden-landscape.jpg',
+    alt: 'Beautiful custom garden with flowering plants and curved pathways',
+    category: 'Garden Design'
+  },
+  {
+    src: '/generated/commercial-business-landscape.jpg',
+    alt: 'Modern commercial landscaping for business entrance',
+    category: 'Commercial Projects'
+  },
+  {
+    src: '/generated/retaining-wall-terraced.jpg',
+    alt: 'Multi-tiered retaining wall with terraced garden design',
+    category: 'Retaining Walls'
+  },
+  {
+    src: '/generated/pool-landscape-desert.jpg',
+    alt: 'Resort-style pool landscaping with desert theme',
+    category: 'Pool Landscaping'
+  }
+]
 
 const projectCategories = [
   {
@@ -62,14 +113,39 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Project Categories */}
+      {/* Featured Projects Gallery */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              Featured Projects
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Click any image to view full size and browse through our collection
+            </p>
+          </div>
+
+          <GalleryGrid images={projectImages} columns={3} />
+        </div>
+      </section>
+
+      {/* Project Categories */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+              Service Categories
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Specialized expertise across all landscaping disciplines
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projectCategories.map((category, index) => (
               <div
                 key={index}
-                className="group bg-background rounded-2xl border-2 border-border hover:border-primary overflow-hidden transition-all duration-300 hover:shadow-xl"
+                className="group bg-card rounded-2xl border-2 border-border hover:border-primary overflow-hidden transition-all duration-300 hover:shadow-xl"
               >
                 <div className="p-8">
                   <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
